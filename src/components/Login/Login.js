@@ -2,18 +2,19 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 import { useState, forwardRef } from 'react'; // This is a HOOK
+import { useNavigate } from 'react-router-dom';
 
-import setLogin from '../services/Login.services';
+import SetLogin from '../../services/Login.services';
 
 const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
 const Login = () => {
+    const navigate = useNavigate();
 
     // useState return an array with 2 positions, so I declared a variable in this way:
     const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        setLogin(formData)
+        SetLogin(formData)
             .then((res) => {
                 console.log("Success user login")
                 // setting a value to user token
@@ -48,6 +49,12 @@ const Login = () => {
                     message: 'User login successful!',
                     type: 'success'
                 })
+
+                const token = res.data.token;
+                localStorage.setItem('token', token)
+
+                navigate('/list')
+
             })
             .catch((err) => {
                 console.log("Error while user try to login")
@@ -64,7 +71,7 @@ const Login = () => {
 
     const handleClose = () => {
         setShowMessage({
-            // the '...' means that this object will affect to all properties inside the state (status, message, type)
+            // with '...' we copy all the object's elements
             ...showMessage,
             status: false
         })
@@ -105,7 +112,6 @@ const Login = () => {
                     validators={['required']}
                     errorMessages={['Password is required']}
                 />
-                <br />
                 <br />
                 <Button type="submit" variant="contained" endIcon={<SendIcon />}>
                     Send

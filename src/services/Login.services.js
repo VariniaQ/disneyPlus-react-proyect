@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const setLogin = (body) => {
+const SetLogin = (body) => {
     return axios.post("http://challenge-react.alkemy.org", body)
 }
 
-export default setLogin;
+export default SetLogin;
