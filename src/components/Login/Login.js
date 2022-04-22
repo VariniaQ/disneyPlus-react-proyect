@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 
 import SetLogin from '../../services/Login.services';
 
+import './Login.css'
+
 const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -85,7 +87,7 @@ const Login = () => {
 
     return (
         // JSX code
-        <>
+        <div className='form'>
             <h2>Form</h2>
             <ValidatorForm onSubmit={handleSubmit}>
                 <TextValidator
@@ -121,7 +123,7 @@ const Login = () => {
                     {message}
                 </Alert>
             </Snackbar>
-        </>
+        </div>
     )
 }
 

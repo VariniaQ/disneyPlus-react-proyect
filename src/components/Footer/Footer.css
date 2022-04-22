@@ -1,0 +1,51 @@
+footer {
+    background: #090b13;
+    padding: 15px;
+    float: left;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+footer div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+footer div img {
+    width: 80px;
+}
+
+navbar.navbar-footer {
+    margin: 0px;
+}
+
+navbar.navbar-footer ul {
+    margin: 0px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+navbar.navbar-footer ul * {
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+}
+
+navbar.navbar-footer ul li {
+    margin-right: 10px;
+}
+
+footer p,
+footer span {
+    color: white;
+    font-size: 11px;
+    width: 300px;
+    text-align: center;
+    margin: 15px auto;
+}
