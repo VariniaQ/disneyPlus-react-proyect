@@ -70,7 +70,6 @@ const Login = () => {
 
     const handleClose = () => {
         setShowMessage({
-            // with '...' we copy all the object's elements
             ...showMessage,
             status: false
         })

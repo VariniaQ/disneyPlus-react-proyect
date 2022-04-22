@@ -12,7 +12,7 @@ function AppRouter() {
             <Routes>
                 <Route path="/" element={<Login />} />
             </Routes>
-            <Header />
+            <Header /> {/* TODO find how to exclude this from login*/}
             <Routes>
                 <Route path="/home" element={<Home />} />
             </Routes>
