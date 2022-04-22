@@ -36,8 +36,7 @@ const Login = () => {
     const { status, message, type } = showMessage;
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-
+        e.preventDefault();
         SetLogin(formData)
             .then((res) => {
                 console.log("Success user login")
@@ -53,14 +52,14 @@ const Login = () => {
                 const token = res.data.token;
                 localStorage.setItem('token', token)
 
-                navigate('/list')
+                navigate('/home')
 
             })
             .catch((err) => {
                 console.log("Error while user try to login")
                 setShowMessage({
                     status: true,
-                    message: "Error while user try to login",
+                    message: "Password or email is not valid",
                     type: 'error'
                 })
             })

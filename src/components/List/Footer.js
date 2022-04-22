@@ -3,9 +3,12 @@ function Footer() {
         <footer>
             <nav>
                 <ul>
-                    <li><a href="https://github.com/VariniaQ" rel="noopener norefer">Varinia Quisbert</a></li>
+                    <li>
+                        <a href="https://github.com/VariniaQ" rel="noopener noreferrer">Varinia Quisbert</a>
+                    </li>
                 </ul>
             </nav>
+            <p> © Copyright</p>
         </footer>
     )
 }

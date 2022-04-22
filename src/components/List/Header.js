@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 
 function Header() {
     return (
-        <header>I'm the header
+        <header>
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/home">Home</Link>
                     </li>
 
                 </ul>
