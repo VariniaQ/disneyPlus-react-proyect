@@ -54,7 +54,7 @@ const Login = () => {
                 const token = res.data.token;
                 localStorage.setItem('token', token)
 
-                navigate('/home')
+                navigate('/')
 
             })
             .catch((err) => {
