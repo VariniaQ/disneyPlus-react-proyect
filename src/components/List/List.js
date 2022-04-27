@@ -1,18 +1,14 @@
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 
 function List() {
-    const navigate = useNavigate();
 
-    useEffect(() => {
-
-        if (!localStorage.getItem('token')) {
-            navigate('/login')
-        }
-    }, []);
+    let token = localStorage.getItem('token');
 
     return (
-        <h2>I'm a list, u know?</h2>
+        <>
+            {!token && <Navigate to="/login" />}
+            <h2>I'm a list, u know?</h2>
+        </>
     )
 }
 

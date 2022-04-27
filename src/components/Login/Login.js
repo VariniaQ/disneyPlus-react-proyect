@@ -5,7 +5,7 @@ import MuiAlert from '@mui/material/Alert';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 import { useState, forwardRef } from 'react'; // This is a HOOK
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import SetLogin from '../../services/Login.services';
 
@@ -16,7 +16,6 @@ const Alert = forwardRef(function Alert(props, ref) {
 });
 
 const Login = () => {
-    const navigate = useNavigate();
 
     // useState return an array with 2 positions, so I declared a variable in this way:
     const [formData, setFormData] = useState({
@@ -54,7 +53,6 @@ const Login = () => {
                 const token = res.data.token;
                 localStorage.setItem('token', token)
 
-                navigate('/')
 
             })
             .catch((err) => {
@@ -86,44 +84,47 @@ const Login = () => {
     }
 
     return (
-        // JSX code
-        <div className='form'>
-            <h2>Form</h2>
-            <ValidatorForm onSubmit={handleSubmit}>
-                <TextValidator
-                    id="standard-basic"
-                    label="Email"
-                    variant="standard"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    validators={['required', 'isEmail']}
-                    errorMessages={['Email is required', 'Email is not valid']}
-                />
-                <br />
-                <TextValidator
-                    id="standard-basic"
-                    label="Password"
-                    variant="standard"
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    validators={['required']}
-                    errorMessages={['Password is required']}
-                />
-                <br />
-                <Button type="submit" variant="contained" endIcon={<SendIcon />}>
-                    Send
-                </Button>
-            </ValidatorForm>
+        <>
+            {token && <Navigate to="/" />}
+            <div className='form'>
+                <h2>Login</h2>
+                <ValidatorForm onSubmit={handleSubmit}>
+                    <TextValidator
+                        id="standard-basic"
+                        label="Email"
+                        variant="standard"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        validators={['required', 'isEmail']}
+                        errorMessages={['Email is required', 'Email is not valid']}
+                    />
+                    <br />
+                    <TextValidator
+                        id="standard-basic"
+                        label="Password"
+                        variant="standard"
+                        type="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        validators={['required']}
+                        errorMessages={['Password is required']}
+                    />
+                    <br />
+                    <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+                        Send
+                    </Button>
+                </ValidatorForm>
 
-            <Snackbar open={status} autoHideDuration={6000} onClose={handleClose}>
-                <Alert onClose={handleClose} severity={type} >
-                    {message}
-                </Alert>
-            </Snackbar>
-        </div>
+                <Snackbar open={status} autoHideDuration={6000} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity={type} >
+                        {message}
+                    </Alert>
+                </Snackbar>
+            </div>
+        </>
+
     )
 }
 

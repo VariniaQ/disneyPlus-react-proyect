@@ -8,7 +8,6 @@ import Home from '../../pages/Home';
 function AppRouter() {
     return (
         <BrowserRouter>
-            <Header />
             <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/" element={<Home />} />

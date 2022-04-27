@@ -18,11 +18,11 @@ footer div img {
     width: 80px;
 }
 
-navbar.navbar-footer {
+nav.nav-footer {
     margin: 0px;
 }
 
-navbar.navbar-footer ul {
+nav.nav-footer ul {
     margin: 0px;
     padding: 0;
     list-style: none;
@@ -31,13 +31,13 @@ navbar.navbar-footer ul {
     margin-top: 20px;
 }
 
-navbar.navbar-footer ul * {
+nav.nav-footer ul * {
     color: white;
     text-decoration: none;
     font-size: 11px;
 }
 
-navbar.navbar-footer ul li {
+nav.nav-footer ul li {
     margin-right: 10px;
 }
 

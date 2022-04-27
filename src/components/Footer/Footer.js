@@ -6,7 +6,7 @@ function Footer() {
         <footer>
             <div>
                 <img src="./logo.svg" alt="logo footer" />
-                <navbar className="navbar-footer">
+                <nav className="nav-footer">
                     <ul>
                         <li><Link to="/">Politicas Privacidad</Link></li>
                         <li><Link to="/">Acuerdo subscripcion</Link></li>
@@ -19,7 +19,7 @@ function Footer() {
                     <span>
                         © Quisbert Varinia. Todos los derechos reservados.
                     </span>
-                </navbar>
+                </nav>
             </div>
         </footer>
     )

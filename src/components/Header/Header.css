@@ -16,7 +16,7 @@
     width: 100%;
 }
 
-.header-disney navbar ul {
+.header-disney nav ul {
     margin: 0px;
     padding: 0;
     list-style: none;
@@ -25,11 +25,11 @@
     align-items: center;
 }
 
-.header-disney navbar ul li {
+.header-disney nav ul li {
     margin-right: 10px;
 }
 
-header.header-disney navbar ul li * {
+header.header-disney nav ul li * {
     color: white;
     text-decoration: none;
     font-size: 13px;
@@ -37,22 +37,22 @@ header.header-disney navbar ul li * {
     font-weight: 600;
 }
 
-navbar {
+nav {
     margin-left: 50px;
 }
 
-.header-disney navbar ul li svg {
+.header-disney nav ul li svg {
     font-size: 17px;
     margin-right: 8px;
 }
 
-.header-disney navbar ul li a {
+.header-disney nav ul li a {
     display: flex;
     align-items: center;
     margin-right: 25px;
 }
 
-.header-disney navbar ul li a:before {
+.header-disney nav ul li a:before {
     content: "";
     position: absolute;
     bottom: -7px;
@@ -65,11 +65,11 @@ navbar {
 }
 
 
-.header-disney navbar ul li a {
+.header-disney nav ul li a {
     position: relative;
 }
 
-.header-disney navbar ul li a:hover:before {
+.header-disney nav ul li a:hover:before {
     width: calc(100% - 24px);
     opacity: 1;
 }
@@ -89,7 +89,7 @@ navbar {
     padding: 0px;
 }
 
-.header-disney navbar {
+.header-disney nav {
     height: 100%;
     margin-top: 18px;
     float: left;

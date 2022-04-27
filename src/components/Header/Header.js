@@ -32,7 +32,7 @@ function Header() {
             <div className="container-logo">
                 <img src="./logo.svg" alt="" />
             </div>
-            <navbar>
+            <nav>
                 <ul>
                     <li><Link to='/'><HomeIcon fontSize={'large'} /> Home</Link></li>
                     <li><Link to='/movies'><LocalMoviesIcon fontSize={'large'} />Movies</Link></li>
@@ -41,7 +41,7 @@ function Header() {
                     <li><Link to='/whishlist'><StarIcon fontSize={'large'} />Whishlist</Link></li>
                     <li><Link to='/originals'><AddIcon fontSize={'large'} />Originals</Link></li>
                 </ul>
-            </navbar>
+            </nav>
             <div className='userAvatar'>
                 <button
                     aria-controls={open ? 'basic-menu' : undefined}
