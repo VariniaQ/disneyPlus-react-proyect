@@ -1,5 +1,5 @@
 .general-container {
     min-height: calc(100vh - 312px);
-    width: 100%;
+    width: 100vh;
     margin-top: 78px;
 }

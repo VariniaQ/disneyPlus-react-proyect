@@ -1,19 +1,15 @@
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
+
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
-import { useState, forwardRef } from 'react'; // This is a HOOK
+import { useState } from 'react'; // This is a HOOK
 import { Navigate } from 'react-router-dom';
 
 import SetLogin from '../../services/Login.services';
 
 import './Login.css'
-
-const Alert = forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import SnackBarMessage from '../SnackBarMessage/SnackBarMessage';
 
 const Login = () => {
 
@@ -52,8 +48,6 @@ const Login = () => {
 
                 const token = res.data.token;
                 localStorage.setItem('token', token)
-
-
             })
             .catch((err) => {
                 console.log("Error while user try to login")
@@ -117,11 +111,7 @@ const Login = () => {
                     </Button>
                 </ValidatorForm>
 
-                <Snackbar open={status} autoHideDuration={6000} onClose={handleClose}>
-                    <Alert onClose={handleClose} severity={type} >
-                        {message}
-                    </Alert>
-                </Snackbar>
+                <SnackBarMessage status={status} message={message} type={type} handleClose={handleClose} />
             </div>
         </>
 
