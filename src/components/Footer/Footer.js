@@ -17,7 +17,7 @@ function Footer() {
                         Disney+ es un servicio por suscripción de pago, su contenido está sujeto a disponibilidad. El servicio Disney+ es comercializado por The Walt Disney Company (Argentina) S.A., Tucumán 1, Piso 4º (C1049AAA) Ciudad Autónoma de Buenos Aires, Argentina y número de CUIT 30-63984459-1.
                     </p>
                     <span>
-                        © Quisbert Varinia. Todos los derechos reservados.
+                        © Quisbert Varinia. All right are reserved.
                     </span>
                 </nav>
             </div>

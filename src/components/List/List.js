@@ -82,14 +82,14 @@ function List() {
                             <>
                                 {
                                     movies.map((movie, index) => {
-                                        const { original_title, poster_path, id } = movie;
+                                        const { original_title, backdrop_path, id } = movie;
 
                                         return (
                                             <>
                                                 <SwiperSlide key={index}>
                                                     {/*TODO change the route later for a real route*/}
                                                     <Link to={`/movie/${id}`} className='card-movie-item'>
-                                                        <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={`${original_title}`} />
+                                                        <img src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`} alt={`${original_title}`} />
                                                     </Link>
                                                 </SwiperSlide>
                                             </>
