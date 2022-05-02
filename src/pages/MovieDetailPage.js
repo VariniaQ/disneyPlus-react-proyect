@@ -1,12 +1,22 @@
+// React
 import { useEffect, useState } from "react";
-import Header from "../components/Header/Header"
+import { Navigate, useParams } from 'react-router-dom';
+// MUI
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
-import { getMovieDetail } from "../services/Movies.services";
+import Button from '@mui/material/Button';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+// Components
+import Header from "../components/Header/Header"
 import SnackBarMessage from "../components/SnackBarMessage/SnackBarMessage";
-import { useParams } from "react-router-dom";
+// CSS
+import './MovieDetail.css'
+// Services
+import { getMovieDetail } from "../services/Movies.services";
 
 const MovieDetailPage = () => {
+
+    let token = localStorage.getItem('token');
 
     const [movieInfo, setMovieInfo] = useState({})
 
@@ -16,7 +26,8 @@ const MovieDetailPage = () => {
         type: ''
     });
 
-    console.log(useParams())
+    let { id } = useParams();
+
     const { status, message, type } = showMessage
     const handleClose = () => {
         setShowMessage({
@@ -26,7 +37,7 @@ const MovieDetailPage = () => {
     }
 
     useEffect(() => {
-        getMovieDetail('414906')
+        getMovieDetail(id)
             .then((res) => {
                 setMovieInfo(res.data)
             })
@@ -41,17 +52,31 @@ const MovieDetailPage = () => {
 
     return (
         <>
+            {!token && <Navigate to="/login" />}
             <Header />
-            <CssBaseline />
-            <Container className="general-container">
-                <h1>{movieInfo.original_title}</h1>
-            </Container>
-            <SnackBarMessage
-                status={status}
-                type={type}
-                handleClose={handleClose}
-                message={message}
-            />
+            <div className="container-background-image">
+                <CssBaseline />
+                <Container className="general-container" style={{
+                    backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieInfo.poster_path})`
+                }} >
+                    <div className="container-movie-info">
+                        <h1>{movieInfo.original_title}</h1>
+                        <Button variant="contained" endIcon={<PlayArrowIcon />}>
+                            View now
+                        </Button>
+                        <h3>Description</h3>
+                        <p>{movieInfo.overview}</p>
+                    </div>
+
+                </Container>
+                <SnackBarMessage
+                    status={status}
+                    type={type}
+                    handleClose={handleClose}
+                    message={message}
+                />
+            </div>
+
         </>
     )
 }

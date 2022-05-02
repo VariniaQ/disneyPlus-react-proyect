@@ -7,8 +7,8 @@ import './List.css'
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper";
+import "swiper/css/navigation";
+import { Navigation } from "swiper";
 // Services
 import getMovies from '../../services/Movies.services';
 
@@ -38,6 +38,7 @@ function List() {
     useEffect(() => {
         getMovies()
             .then((res) => {
+                console.log(res)
                 setMovies(res.data.results)
             })
             .catch((err) => {
@@ -55,18 +56,18 @@ function List() {
         <>
 
             {!token && <Navigate to="/login" />}
-            {console.log(status)}
+
             <div className='container-section-list'>
                 <h2>Movies</h2>
                 <Swiper
                     slidesPerView={5}
                     spaceBetween={2}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    modules={[Pagination]}
+                    loop={true}
+                    navigation={true}
+                    modules={[Navigation]}
                     className="mySwiper"
                 >
+
                     {
                         movies.length === 0 ? (
                             <>

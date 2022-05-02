@@ -1,15 +1,16 @@
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-
+// React
 import { useState } from 'react'; // This is a HOOK
 import { Navigate } from 'react-router-dom';
-
-import SetLogin from '../../services/Login.services';
-
-import './Login.css'
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+// MUI
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+// Components
 import SnackBarMessage from '../SnackBarMessage/SnackBarMessage';
+//CSS
+import './Login.css'
+// Services
+import SetLogin from '../../services/Login.services';
 
 const Login = () => {
 

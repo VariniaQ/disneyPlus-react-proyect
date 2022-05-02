@@ -1,0 +1,30 @@
+.container-background-image {
+    /*background-color: #131625;*/
+}
+
+.general-container {
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: #000 !important;
+
+}
+
+.container-movie-info {
+    max-width: 50%;
+    margin-left: auto
+}
+
+.container-movie-info h1 {
+    text-align: center;
+    font-size: 50px;
+
+}
+
+.container-movie-info>p {
+    text-align: justify;
+    font-size: small;
+}
+
+.container-movie-info>button {
+    margin-top: 100px;
+}

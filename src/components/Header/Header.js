@@ -1,7 +1,7 @@
 // REACT
 import { useState } from 'react';
 // REACT DOM
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // CSSS
 import './Header.css';
 // Material-ui
@@ -15,6 +15,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 function Header() {
+    let navigate = useNavigate();
 
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -25,6 +26,11 @@ function Header() {
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        navigate('/login');
     };
 
     return (
@@ -63,10 +69,13 @@ function Header() {
                 >
                     <MenuItem onClick={handleClose}>Profile</MenuItem>
                     <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem
+                        onClick={handleClose}>
+                        <p onClick={handleLogout}>Logout</p>
+                    </MenuItem>
                 </Menu>
             </div>
-        </header>
+        </header >
     )
 }
 

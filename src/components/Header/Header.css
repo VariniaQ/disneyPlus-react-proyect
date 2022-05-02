@@ -5,6 +5,7 @@
     padding: 10px 20px;
     position: fixed;
     top: 0px;
+    z-index: 2;
 }
 
 .container-logo {
