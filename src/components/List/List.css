@@ -1,9 +1,13 @@
+.container-section-list>h2 {
+    color: #fff !important;
+}
+
 .container-section-list .swiper-pagination {
     bottom: 0px;
 }
 
 .container-section-list .swiper {
-    margin-bottom: 25px;
+    padding-bottom: 25px;
 }
 
 .swiper {
