@@ -87,6 +87,7 @@ const MovieDetailPage = () => {
                                 )
                             })}
                         </ul>
+                        {/*TODO add a Tab component */}
                     </div>
                 </Container>
             </div>
