@@ -1,23 +1,20 @@
-.container-background-image {
-    /*background-color: #131625;*/
+.movie-detailPage-container {
+    background-color: #0d101d;
 }
 
-.general-container {
-    background-repeat: no-repeat;
-    background-size: contain;
-    color: #000 !important;
-
+.general-container img {
+    float: right;
+    box-shadow: 2px 2px 10px #ffffff;
 }
 
 .container-movie-info {
     max-width: 50%;
-    margin-left: auto
+    min-height: calc(100vh + 100px);
 }
 
 .container-movie-info h1 {
     text-align: center;
     font-size: 50px;
-
 }
 
 .container-movie-info>p {
@@ -26,5 +23,5 @@
 }
 
 .container-movie-info>button {
-    margin-top: 100px;
+    margin-top: 200px;
 }

@@ -2,8 +2,8 @@
 import { useState } from 'react';
 // REACT DOM
 import { Link, useNavigate } from 'react-router-dom';
-// CSSS
-import './Header.css';
+// CSS
+import './Header.css'
 // Material-ui
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
@@ -36,7 +36,7 @@ function Header() {
     return (
         <header className='header-disney'>
             <div className="container-logo">
-                <img src="./logo.svg" alt="" />
+                <img src='./logo.svg' alt="logo-header" />
             </div>
             <nav>
                 <ul>

@@ -59,7 +59,6 @@ nav {
     bottom: -7px;
     height: 2px;
     left: 24px;
-    background: white;
     width: 0;
     transition: all 0.3s ease-out;
     opacity: 0;
