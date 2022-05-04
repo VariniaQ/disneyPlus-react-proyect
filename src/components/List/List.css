@@ -1,3 +1,7 @@
+.mySwiper {
+    overflow: hidden;
+}
+
 .container-section-list .swiper-pagination {
     bottom: 0px;
 }
