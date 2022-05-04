@@ -36,7 +36,7 @@ function Header() {
     return (
         <header className='header-disney'>
             <div className="container-logo">
-                <img src='./logo.svg' alt="logo-header" />
+                <img src={'/logo.svg'} alt="logo-header" />
             </div>
             <nav>
                 <ul>
@@ -55,7 +55,7 @@ function Header() {
                     aria-expanded={open ? 'true' : undefined}
                     onClick={handleClick}
                 >
-                    <img src="./avatar.png" alt="alkemy-avatar" />
+                    <img src={'/avatar.png'} alt="alkemy-avatar" />
                 </button>
 
                 <Menu

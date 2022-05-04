@@ -11,6 +11,7 @@ import StarIcon from '@mui/icons-material/Star';
 // Components
 import Header from "../components/Header/Header"
 import SnackBarMessage from "../components/SnackBarMessage/SnackBarMessage";
+import SpinnerLoader from "../components/SpinnerLoader/SpinnerLoader"
 // CSS
 import './MovieDetail.css'
 // Services
@@ -27,6 +28,8 @@ const MovieDetailPage = () => {
         message: '',
         type: ''
     });
+
+    const [loader, setLoader] = useState(true);
 
     let { id } = useParams();
 
@@ -50,6 +53,10 @@ const MovieDetailPage = () => {
                     type: 'error'
                 })
             })
+            .finally(
+                setTimeout(() => {
+                    setLoader(false)
+                }, 800))
     }, [])
 
     return (
@@ -60,6 +67,7 @@ const MovieDetailPage = () => {
 
                 <CssBaseline />
                 <Container className="general-container" >
+                    {loader && <SpinnerLoader />}
                     <img src={`https://image.tmdb.org/t/p/w500/${movieInfo.poster_path}`} alt={`{movieInfo.original_title}`} name={`{movieInfo.original_title}`}></img>
                     <div className="container-movie-info">
                         <h1>{movieInfo.original_title}</h1>
