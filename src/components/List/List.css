@@ -14,7 +14,14 @@
     overflow: inherit !important;
 }
 
-/*TODO move this styles to the Card Component css*/
+.swiper-slide {
+    height: 140px !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fff !important;
+}
 
 a.card-movie-item {
     height: 100%;
@@ -28,13 +35,4 @@ a.card-movie-item img {
     overflow: hidden;
     box-shadow: 2px 2px 5px #fff;
     width: 80%;
-}
-
-.swiper-slide {
-    height: 140px !important;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-    color: #fff !important;
 }

@@ -23,5 +23,12 @@
 }
 
 .container-movie-info>button {
-    margin-top: 180px;
+    margin: 180px 0px 40px;
+    color: #000;
+    background-color: #fff;
+}
+
+.container-movie-info>button:hover {
+    background-color: #000;
+    color: #fff;
 }

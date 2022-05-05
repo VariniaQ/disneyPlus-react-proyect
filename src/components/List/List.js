@@ -1,20 +1,19 @@
 // React 
-import { Navigate, Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 // CSS
 import './List.css'
-// Import Swiper React components
+// Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
+// Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
+// Components
+import SnackBarMessage from '../SnackBarMessage/SnackBarMessage';
+import Cards from '../Cards/Cards';
 // Services
 import getMovies from '../../services/Movies.services';
-
-// Alert Message
-import SnackBarMessage from '../SnackBarMessage/SnackBarMessage';
-
 
 function List() {
 
@@ -68,42 +67,37 @@ function List() {
                     className="mySwiper"
                 >
 
-                    {
-                        movies.length === 0 ? (
-                            <>
-                                <span>Empty, there's no movies</span>
-                                <SnackBarMessage
-                                    status={status}
-                                    type={type}
-                                    message={message}
-                                    handleClose={handleClose}>
-                                </SnackBarMessage>
-                            </>
-                        ) : (
-                            <>
-                                {
-                                    movies.map((movie, index) => {
-                                        const { original_title, backdrop_path, id } = movie;
+                    {movies.length === 0 ? (
+                        <>
+                            <span>Empty, there's no movies</span>
+                            <SnackBarMessage
+                                status={status}
+                                type={type}
+                                message={message}
+                                handleClose={handleClose}>
+                            </SnackBarMessage>
+                        </>
+                    ) : (
+                        <>
+                            {
+                                movies.map((movie, index) => {
+                                    const { original_title, backdrop_path, id } = movie;
 
-                                        return (
-                                            <>
-                                                <SwiperSlide key={index}>
-                                                    {/*TODO change the route later for a real route*/}
-                                                    <Link to={`/movie/${id}`} className='card-movie-item'>
-                                                        <img src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`} alt={`${original_title}`} />
-                                                    </Link>
-                                                </SwiperSlide>
-                                            </>
+                                    return (
+                                        <>
+                                            <SwiperSlide key={index}>
+                                                <Cards movieId={id} path={backdrop_path} title={original_title} />
+                                            </SwiperSlide>
+                                        </>
 
-                                        )
-                                    })
-                                }
-                            </>
-                        )
+                                    )
+                                })
+                            }
+                        </>
+                    )
                     }
                 </Swiper>
             </div>
-            {console.log(status)}
         </>
     )
 
