@@ -1,42 +1,42 @@
+// REACT
 import { useState } from "react";
 // Components
 import Header from "../components/Header/Header";
-// MATERIAL UI
-import { CssBaseline } from "@mui/material";
-import { Container } from "@mui/material";
-
+import Results from "../components/Results/Results";
+// CSS
+import './SearchPage.css'
 
 const SearchPage = () => {
 
     const [searchValue, setSearchValue] = useState('');
 
-    const handleChange = (e) => {
-        setSearchValue(e.target.value);
-        console.log(e.target.value);
-    }
-
     return (
         <>
             <Header />
-            <div className="search-page" style={{ margin: '0 auto' }}>
-                <CssBaseline />
-                <Container className="">
-                    <form>
-                        <input
-                            type="text"
-                            name="search-field"
-                            value={searchValue}
-                            handleChange={handleChange}
-                            placeholder="Search by title, character or genre"
-                        />
-                    </form>
-                    <h2>Explore</h2>
-                    <div className="">
-                        Here goes the results
-                    </div>
-                </Container>
-            </div >
+            <SearchInput value={searchValue} updateValue={setSearchValue} />
+            <h2>Explore</h2>
+            <Results searchValue={searchValue} />
         </>
+    )
+
+}
+
+const SearchInput = ({ value, updateValue }) => {
+
+    const handleChange = (e) => {
+        updateValue(e.target.value);
+    }
+
+    return (
+        <form className="general-container">
+            <input
+                type="text"
+                name="search-field"
+                value={value}
+                onChange={handleChange}
+                placeholder="Search by title, character or genre"
+            />
+        </form>
     )
 }
 

@@ -2,14 +2,19 @@ import axios from 'axios'
 
 const apiKey = '0ff5332abbc56d5b8800de5d07904251'
 const baseUrl = 'https://api.themoviedb.org/3/'
+const language = 'es-ES';
 
 const getMovies = () => {
-    return axios.get(`${baseUrl}discover/movie?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc`)
+    return axios.get(`${baseUrl}discover/movie?api_key=${apiKey}&language=${language}&sort_by=popularity.desc`)
 }
 
 const getMovieDetail = (id) => {
-    return axios.get(`${baseUrl}movie/${id}?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc`)
+    return axios.get(`${baseUrl}movie/${id}?api_key=${apiKey}&language=${language}&sort_by=popularity.desc`)
+}
+
+const getSearchResult = (query) => {
+    return axios.get(`${baseUrl}search/movie?api_key=${apiKey}&language=${language}&query=${query}&page=1&include_adult=false`)
 }
 
 export default getMovies;
-export { getMovieDetail };
+export { getMovieDetail, getSearchResult };

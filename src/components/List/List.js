@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 // Components
 import SnackBarMessage from '../SnackBarMessage/SnackBarMessage';
-import Cards from '../Cards/Cards';
+import Card from '../Card/Card';
 // Services
 import getMovies from '../../services/Movies.services';
 
@@ -84,12 +84,9 @@ function List() {
                                     const { original_title, backdrop_path, id } = movie;
 
                                     return (
-                                        <>
-                                            <SwiperSlide key={index}>
-                                                <Cards movieId={id} path={backdrop_path} title={original_title} />
-                                            </SwiperSlide>
-                                        </>
-
+                                        <SwiperSlide key={index}>
+                                            <Card key={id} movieId={id} path={backdrop_path} title={original_title} />
+                                        </SwiperSlide>
                                     )
                                 })
                             }

@@ -13,9 +13,8 @@ function Home() {
                     <List />
                     <List />
                     <List />
-                    <List />
-                    <List />
                 </Container>
+
             </div >
         </>
     )
