@@ -45,7 +45,7 @@ function Header() {
                     <li><Link to='/series'><LiveTvIcon fontSize={'large'} />Series</Link></li>
                     <li><Link to='/search'><SearchIcon fontSize={'large'} />Search</Link></li>
                     <li><Link to='/whishlist'><StarIcon fontSize={'large'} />Whishlist</Link></li>
-                    <li><Link to='/originals'><AddIcon fontSize={'large'} />Originals</Link></li>
+                    <li><Link to='/testingSpinner'><AddIcon fontSize={'large'} />Originals</Link></li>
                 </ul>
             </nav>
             <div className='userAvatar'>

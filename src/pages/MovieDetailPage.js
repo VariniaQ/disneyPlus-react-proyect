@@ -1,14 +1,11 @@
 // React
 import { useEffect, useState } from "react";
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 // MUI
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Button from '@mui/material/Button';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import StarIcon from '@mui/icons-material/Star';
-
-
 // Components
 import Header from "../components/Header/Header"
 import SnackBarMessage from "../components/SnackBarMessage/SnackBarMessage";
@@ -23,13 +20,12 @@ const MovieDetailPage = () => {
 
     let token = localStorage.getItem('token');
 
-    const [movieInfo, setMovieInfo] = useState({})
-
     const [showMessage, setShowMessage] = useState({
         status: false,
         message: '',
         type: ''
     });
+    const [movieInfo, setMovieInfo] = useState({})
 
     const [loader, setLoader] = useState(true);
 
@@ -43,6 +39,8 @@ const MovieDetailPage = () => {
         })
     }
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         getMovieDetail(id)
             .then((res) => {
@@ -51,14 +49,16 @@ const MovieDetailPage = () => {
             .catch((err) => {
                 setShowMessage({
                     status: true,
-                    message: 'Error while movie image was loading',
+                    message: 'Error while movie detail was loading',
                     type: 'error'
                 })
+                navigate('/')
             })
             .finally(
                 setTimeout(() => {
                     setLoader(false)
-                }, 800))
+                }, 1000)
+            )
     }, [])
 
     const tabsContent = ["SUGGESTED", "EXTRAS", "DETAILS"];
@@ -68,7 +68,6 @@ const MovieDetailPage = () => {
             {!token && <Navigate to="/login" />}
             <Header />
             <div className="movie-detailPage-container">
-
                 <CssBaseline />
                 <Container className="general-container" >
                     {loader ? <SpinnerLoader /> : (
@@ -94,7 +93,6 @@ const MovieDetailPage = () => {
                 handleClose={handleClose}
                 message={message}
             />
-
         </>
     )
 }

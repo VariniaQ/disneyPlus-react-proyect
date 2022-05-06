@@ -14,6 +14,7 @@ import SnackBarMessage from '../SnackBarMessage/SnackBarMessage';
 import Card from '../Card/Card';
 // Services
 import getMovies from '../../services/Movies.services';
+import SpinnerLoader from '../SpinnerLoader/SpinnerLoader';
 
 function List() {
 
@@ -69,6 +70,7 @@ function List() {
 
                     {movies.length === 0 ? (
                         <>
+                            <SpinnerLoader />
                             <span>Empty, there's no movies</span>
                             <SnackBarMessage
                                 status={status}

@@ -1,0 +1,7 @@
+.spinner-container {
+    width: 100%;
+    height: calc(100vh - 365px);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}

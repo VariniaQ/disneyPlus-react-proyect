@@ -1,9 +1,11 @@
 import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import './Spinner.css'
 
-const SpinnerLoader = () => {
-    <div className="container-spinner">
-        <CircularProgress />
-    </div>
+export default function SpinnerLoader() {
+    return (
+        <Box sx={{ display: 'flex' }} className="spinner-container">
+            <CircularProgress />
+        </Box>
+    );
 }
-
-export default SpinnerLoader;
