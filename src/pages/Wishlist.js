@@ -15,7 +15,7 @@ const Wishlist = () => {
                 <Header />
                 <CssBaseline />
                 <Container className="general-container">
-                    <h2>Mi Lista</h2>
+                    <h2>My wishlist</h2>
                     <Results searchValue={searchValue} />
                 </Container>
             </div>
