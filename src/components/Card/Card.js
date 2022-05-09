@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './Card.css'
 
 const Cards = ({ movieId, path, title }) => {
     return (

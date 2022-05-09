@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const apiKey = '0ff5332abbc56d5b8800de5d07904251'
+const apiKey = 'd3f8245ddd0ea6b00c455c62c9e6f0fb'
 const baseUrl = 'https://api.themoviedb.org/3/'
-const language = 'es-ES';
+const language = 'en-US';
 
 const getMovies = () => {
     return axios.get(`${baseUrl}discover/movie?api_key=${apiKey}&language=${language}&sort_by=popularity.desc`)

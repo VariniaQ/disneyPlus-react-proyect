@@ -6,11 +6,16 @@ import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Button from '@mui/material/Button';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import IconButton from '@mui/material/IconButton';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 // Components
 import Header from "../components/Header/Header"
 import SnackBarMessage from "../components/SnackBarMessage/SnackBarMessage";
 import SpinnerLoader from "../components/SpinnerLoader/SpinnerLoader"
 import BasicTabs from "../components/Tabs/Tabs";
+import Stack from '@mui/material/Stack';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 // CSS
 import './MovieDetail.css'
 // Services
@@ -63,6 +68,26 @@ const MovieDetailPage = () => {
 
     const tabsContent = ["SUGGESTED", "EXTRAS", "DETAILS"];
 
+    const wishlistItem_name = 'myWishlist';
+    const [moviesWishlist, setMoviesWishlist] = useState(JSON.parse(localStorage.getItem(wishlistItem_name)) || []);
+
+    const [iconChange, setIconChange] = useState(false);
+
+    const handleClick = (movie) => {
+        const movieExist = moviesWishlist.find(movieList => movieList.id === movie.id)
+        if (movieExist) {
+            const wishlistFilter = moviesWishlist.filter(movieWishlist => movieWishlist.id !== movie.id)
+            localStorage.setItem(wishlistItem_name, JSON.stringify(wishlistFilter))
+            console.log("elimino")
+            setIconChange(false)
+        } else {
+            localStorage.setItem(wishlistItem_name, JSON.stringify([...moviesWishlist, movie]))
+            setMoviesWishlist([...moviesWishlist, movie])
+            console.log("pongo nuevos")
+            setIconChange(true)
+        }
+    }
+
     return (
         <>
             {!token && <Navigate to="/login" />}
@@ -76,9 +101,15 @@ const MovieDetailPage = () => {
                             <div className="container-movie-info">
                                 <h1>{movieInfo.original_title}</h1>
 
-                                <Button variant="contained" endIcon={<PlayArrowIcon />}>
-                                    View now
-                                </Button>
+                                <Stack direction="row" alignItems="center" spacing={4}>
+
+                                    <Button className="btn-view-movie" variant="contained" endIcon={<PlayArrowIcon />} >
+                                        View now
+                                    </Button>
+                                    <IconButton color="primary" onClick={() => handleClick(movieInfo)} >
+                                        {(!iconChange) ? <AddCircleIcon fontSize="large" /> : <CheckCircleIcon fontSize="large" />}
+                                    </IconButton>
+                                </Stack>
 
                                 <BasicTabs tabsContent={tabsContent} movieInfo={movieInfo} />
                             </div>

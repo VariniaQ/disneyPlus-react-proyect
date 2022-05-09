@@ -1,0 +1,7 @@
+img {
+    color: #fff;
+}
+
+img::selection {
+    outline: none
+}

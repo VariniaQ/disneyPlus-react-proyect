@@ -38,7 +38,6 @@ function List() {
     useEffect(() => {
         getMovies()
             .then((res) => {
-                console.log(res)
                 setMovies(res.data.results)
             })
             .catch((err) => {

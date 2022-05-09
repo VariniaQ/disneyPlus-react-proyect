@@ -53,7 +53,7 @@ export default function BasicTabs({ tabsContent, movieInfo }) {
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                     {
                         tabsContent.map((tab, index) => {
-                            return <Tab label={tab} {...a11yProps(index)} />
+                            return <Tab key={index} style={{ color: 'white' }} label={tab} {...a11yProps(index)} />
                         })
                     }
                 </Tabs>

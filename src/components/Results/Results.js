@@ -12,7 +12,7 @@ const Results = ({ searchValue }) => {
     const [moviesList, setMoviesList] = useState([]);
     //TODO add catch 
     useEffect(() => {
-        if (searchValue === '') {
+        if (searchValue === '' || []) {
             getMovies()
                 .then((res) => {
                     setMoviesList(res.data.results)
@@ -34,7 +34,7 @@ const Results = ({ searchValue }) => {
                 const { id, backdrop_path, original_title } = movie;
 
                 return (
-                    <div className="swiper-slider">
+                    <div className="swiper-slider" key={id}>
                         <Card movieId={id} path={backdrop_path} title={original_title} />
                     </div>
                 )
