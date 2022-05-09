@@ -5,6 +5,7 @@ import Login from '../Login/Login';
 import Home from '../../pages/Home';
 import MovieDetailPage from '../../pages/MovieDetailPage';
 import SearchPage from '../../pages/SearchPage';
+import Wishlist from '../../pages/Wishlist';
 
 function AppRouter() {
     return (
@@ -14,6 +15,7 @@ function AppRouter() {
                 <Route path="/" element={<Home />} />
                 <Route path="/movie/:id" element={<MovieDetailPage />} />
                 <Route path="/search" element={<SearchPage />} />
+                <Route path="/wishlist" element={<Wishlist />} />
             </Routes>
             <Footer />
         </BrowserRouter>
