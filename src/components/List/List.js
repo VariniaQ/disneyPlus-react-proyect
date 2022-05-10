@@ -12,13 +12,12 @@ import { Navigation } from "swiper";
 // Components
 import SnackBarMessage from '../SnackBarMessage/SnackBarMessage';
 import Card from '../Card/Card';
-// Services
-import getMovies from '../../services/Movies.services';
 import SpinnerLoader from '../SpinnerLoader/SpinnerLoader';
 
-function List({ movieType, title }) {
+// Services
+import getMovies from '../../services/Movies.services';
 
-    let token = localStorage.getItem('token');
+function List({ movieType, title }) {
 
     const [movies, setMovies] = useState([]);
 
@@ -53,8 +52,6 @@ function List({ movieType, title }) {
 
     return (
         <>
-
-            {!token && <Navigate to="/login" />}
 
             <div className='container-section-list'>
                 <h2>{title}</h2>

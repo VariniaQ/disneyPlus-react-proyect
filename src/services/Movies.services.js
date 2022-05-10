@@ -5,7 +5,7 @@ const baseUrl = 'https://api.themoviedb.org/3/'
 const language = 'en-US';
 
 const getMovies = (type) => {
-    return axios.get(`${baseUrl}/movie/${type}?api_key=${apiKey}&language=${language}&sort_by=popularity.desc`)
+    return axios.get(`${baseUrl}movie/${type}?api_key=${apiKey}&language=${language}&page=1`)
 }
 
 const getMovieDetail = (id) => {
