@@ -15,7 +15,7 @@ const SearchPage = () => {
             <Header />
             <SearchInput value={searchValue} updateValue={setSearchValue} />
             <h2>Explore</h2>
-            <Results searchValue={searchValue} />
+            <Results searchValue={searchValue} listPage={false} />
         </>
     )
 

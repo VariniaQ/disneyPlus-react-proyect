@@ -10,16 +10,14 @@ import Results from '../components/Results/Results'
 const Wishlist = () => {
     const [searchValue, setSearchValue] = useState('')
     return (
-        <>
-            <div className="home-page">
-                <Header />
-                <CssBaseline />
-                <Container className="general-container">
-                    <h2>My wishlist</h2>
-                    <Results searchValue={searchValue} />
-                </Container>
-            </div>
-        </>
+        <div className="home-page">
+            <Header />
+            <CssBaseline />
+            <Container className="general-container">
+                <h2>My wishlist</h2>
+                <Results searchValue={searchValue} listPage={true} />
+            </Container>
+        </div>
     )
 }
 

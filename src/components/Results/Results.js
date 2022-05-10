@@ -12,14 +12,14 @@ const Results = ({ searchValue, listPage }) => {
     const [moviesList, setMoviesList] = useState([]);
 
     useEffect(() => {
-        if (searchValue === '' || !listPage) {
-            getMovies('top_rated')
+        if (searchValue === '' && !listPage) {
+            getMovies('now_playing')
                 .then((res) => {
                     setMoviesList(res.data.results)
                 })
         } else {
-            console.log("Traer peliculas de mi lista", JSON.parse(localStorage.getItem('miLista')))
-            setMoviesList(JSON.parse(localStorage.getItem('miLista')))
+            console.log("Traer peliculas de mi lista", JSON.parse(localStorage.getItem('myWishlist')))
+            setMoviesList(JSON.parse(localStorage.getItem('myWishlist')))
         }
     }, [])
 
