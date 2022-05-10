@@ -76,14 +76,14 @@ const MovieDetailPage = () => {
     const handleClick = (movie) => {
         const movieExist = moviesWishlist.find(movieList => movieList.id === movie.id)
         if (movieExist) {
+            // delete items in the wishlist
             const wishlistFilter = moviesWishlist.filter(movieWishlist => movieWishlist.id !== movie.id)
             localStorage.setItem(wishlistItem_name, JSON.stringify(wishlistFilter))
-            console.log("elimino")
             setIconChange(false)
         } else {
+            // add new items to wishlist
             localStorage.setItem(wishlistItem_name, JSON.stringify([...moviesWishlist, movie]))
             setMoviesWishlist([...moviesWishlist, movie])
-            console.log("pongo nuevos")
             setIconChange(true)
         }
     }
