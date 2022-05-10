@@ -16,7 +16,7 @@ import Card from '../Card/Card';
 import getMovies from '../../services/Movies.services';
 import SpinnerLoader from '../SpinnerLoader/SpinnerLoader';
 
-function List() {
+function List({ movieType, title }) {
 
     let token = localStorage.getItem('token');
 
@@ -36,7 +36,7 @@ function List() {
     }
 
     useEffect(() => {
-        getMovies()
+        getMovies(movieType)
             .then((res) => {
                 setMovies(res.data.results)
             })
@@ -57,7 +57,7 @@ function List() {
             {!token && <Navigate to="/login" />}
 
             <div className='container-section-list'>
-                <h2>Movies</h2>
+                <h2>{title}</h2>
                 <Swiper
                     slidesPerView={5}
                     spaceBetween={2}
@@ -71,12 +71,6 @@ function List() {
                         <>
                             <SpinnerLoader />
                             <span>Empty, there's no movies</span>
-                            <SnackBarMessage
-                                status={status}
-                                type={type}
-                                message={message}
-                                handleClose={handleClose}>
-                            </SnackBarMessage>
                         </>
                     ) : (
                         <>
@@ -96,6 +90,12 @@ function List() {
                     }
                 </Swiper>
             </div>
+            <SnackBarMessage
+                status={status}
+                type={type}
+                message={message}
+                handleClose={handleClose}>
+            </SnackBarMessage>
         </>
     )
 
